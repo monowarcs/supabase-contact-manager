@@ -190,5 +190,8 @@ This application is configured for deployment using GitHub Actions. Upon pushing
 4. Commit your changes and push to the `main` branch.
 
 ## Live URL
-The application will be hosted and available at:
+The application is hosted and available at:
 [https://monowarcs.github.io/supabase-contact-manager/](https://monowarcs.github.io/supabase-contact-manager/)
+
+> [!IMPORTANT]
+> To avoid serving uncompiled code and a blank page, make sure your repository Settings -> Pages -> Build and deployment -> Source is configured to **GitHub Actions** rather than "Deploy from a branch".
