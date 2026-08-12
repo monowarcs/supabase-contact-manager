@@ -34,10 +34,7 @@ export default function AdminLogin({ onLoginSuccess }) {
       });
 
       if (authError) {
-        throw new Error(authError.message === 'Invalid login credentials' 
-          ? 'Invalid username or password.' 
-          : authError.message
-        );
+        throw authError;
       }
 
       const user = data.user;
@@ -68,8 +65,9 @@ export default function AdminLogin({ onLoginSuccess }) {
       }
 
     } catch (err) {
-      console.error('Login error:', err);
-      setErrorMsg(err.message || 'An unexpected error occurred during login.');
+      console.error('Login error details:', err);
+      const statusSuffix = err.status ? ` (Status: ${err.status})` : '';
+      setErrorMsg(`${err.message || 'An unexpected error occurred during login.'}${statusSuffix}`);
     } finally {
       setIsLoading(false);
     }
